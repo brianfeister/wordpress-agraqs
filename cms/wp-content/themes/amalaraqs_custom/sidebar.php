@@ -1,20 +1,23 @@
 <?php dynamic_sidebar("sidebar"); ?>
 <div class="sidebar">
-	<h2 class="birds"><span class="sidebar_h2">Upcoming Events</span></h2>
-	<ul>	 
-		<li>        
-	         <span class="headline">FREE Intro to Belly Dance with Amala Gameela</span>
-	         <div class="date">01/15/12 6:30PM-7:30PM</div>
-		</li>
-		<li>
-	         <span class="headline">FREE Intro to Belly Dance with Amala Gameela</span>
-	         <div class="date">01/16/12 7:15PM-8:15PM</div>
-		</li>
-		<li>
-	         <span class="headline">FREE Intro to Belly Dance with Amala Gameela</span>
-	         <div class="date">01/18/12 7:15AM-8:15AM</div>
-		</li>
-	</ul>
+	<?php if ( is_front_page()) { ?>
+		<h2 class="birds"><span class="sidebar_h2">Featured Events</span></h2>
+		<?php do_shortcode('[events category="Featured, Events"]');?>
+	<?php } elseif ( in_category( array( 'Classes' ) ) || is_page('Classes') ) { ?>
+		<h2 class="birds"><span class="sidebar_h2">Classes</span></h2>
+		<?php do_shortcode('[events category="Classes"]');?>
+	<?php } elseif (in_category( array( 'Blog' ) )) { ?>
+		<h2 class="birds"><span class="sidebar_h2">Recent Posts</span></h2>
+		<?php do_shortcode('[posts category="Blog"]');?>
+	<?php } elseif (in_category( array( 'Events' ) )) { ?>
+		<h2 class="birds"><span class="sidebar_h2">Events</span></h2>
+		<?php do_shortcode('[events category="Events"]');?>
+	<?php } else { ?>
+		<h2 class="birds"><span class="sidebar_h2">Classes</span></h2>
+		<?php do_shortcode('[events category="Classes"]');?>
+	<?php } ?>
+	
+	
 </div>
 <div class="sidebar">
 	<h2 class="sidebar_email_updates">E-mail Updates</h2>

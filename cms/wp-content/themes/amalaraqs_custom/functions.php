@@ -76,4 +76,126 @@ foreach ($sidebars as $sidebar) {
 	));
 }
 
+// Shortcode for custom event listing display 
+
+function generate_event_listing( $atts, $content = null ) {
+	// default parameters
+	extract(shortcode_atts(array(
+		'category' => 'Events',
+		'count' => 4
+	), $atts));
+	// Print the following HTML
+
+								// set the parameters for a new WP_Query 
+																
+	              $current_date = date('ymd');
+	              $sidebarEvents = new WP_Query();
+	              $sidebarEvents->query(array(
+	                  'category_name' => $category,
+	                  'meta_key' => '_date_compare',
+	                  'meta_compare' => '>=',
+	                  'meta_value' => $current_date,
+	                  'orderby' => 'meta_value',
+	                  'order'   => 'ASC',
+	                  'posts_per_page' => $count
+	              ));
+	              
+	              // beginning the loop now...
+	              
+	              if ($sidebarEvents->have_posts()) : ?>
+	              
+	              <ul class="event_list">
+	              
+		              <?php while ($sidebarEvents->have_posts()) : $sidebarEvents->the_post(); ?>
+		
+									<li>
+
+										<h3 class="sb_event"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
+
+										<div class="date">			
+											<?php event_date('start','D, M '); ?>
+											<?php event_date_range(); ?>,&nbsp;|&nbsp;
+											<?php event_date('start','g:ia');?> 
+										</div>
+																														
+											
+		        	    	<br class="clearfix" />
+		        	    	
+		        	    </li>
+		        	    
+		        	    
+                 	<?php endwhile; ?>
+                 	
+              		</ul>
+
+                 	<?php else: ?>
+                 	
+                 	<p>Sorry, none listed at this time. <a href="mailto:bookings@bellyqueen.com">Email us</a> to book Bellyqueen for your next event.</p>
+                 	
+
+                 	<?php endif; ?>
+									<?php wp_reset_query(); ?>
+									
+<?php }
+
+// shortcode for events listing	
+add_shortcode('events', 'generate_event_listing');
+
+
+
+
+// Shortcode for custom loop with title only 
+
+function generate_post_sidebar( $atts, $content = null ) {
+	// default parameters
+	extract(shortcode_atts(array(
+		'category' => 'Blog',
+		'count' => 4
+	), $atts));
+	// Print the following HTML
+
+								// set the parameters for a new WP_Query 
+																
+	              $sidebarLoop = new WP_Query();
+	              $sidebarLoop->query(array(
+	                  'category_name' => $category,
+	                  'order'   => 'ASC',
+	                  'posts_per_page' => $count
+	              ));
+	              
+	              // beginning the loop now...
+	              
+	              if ($sidebarLoop->have_posts()) : ?>
+	              
+	              <ul class="recent_posts">
+	              
+		              <?php while ($sidebarLoop->have_posts()) : $sidebarLoop->the_post(); ?>
+		
+									<li>
+
+										<h3 class="sb_event"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></h3>
+																														
+											
+		        	    	<br class="clearfix" />
+		        	    	
+		        	    </li>
+		        	    
+		        	    
+                 	<?php endwhile; ?>
+                 	
+              		</ul>
+
+                 	<?php else: ?>
+                 	
+                 	<p>Sorry, none listed at this time. <a href="mailto:bookings@bellyqueen.com">Email us</a> to book Bellyqueen for your next event.</p>
+                 	
+
+                 	<?php endif; ?>
+									<?php wp_reset_query(); ?>
+									
+<?php }
+
+// shortcode for events listing	
+add_shortcode('posts', 'generate_post_sidebar');
+
 ?>

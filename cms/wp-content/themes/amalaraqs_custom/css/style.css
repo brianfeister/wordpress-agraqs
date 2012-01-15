@@ -270,15 +270,14 @@ td { vertical-align: top; }
 #logo { 
 	float: left; 
 	width: 254px; 
-	height: 200px;
+	height: 190px;
 	margin: 0px 0px 170px 120px; 
 }
 #nav-main {
-	margin: 0 0 0 175px;
+	margin: 0 0 10px 175px;
 	float: left;
 }
 #nav-main ul {	
-	
 	position: relative; 
 	list-style: none; 
 	margin: 0 0 16px 0; 
@@ -589,6 +588,7 @@ blockquote {
 	text-align: center;
 	margin:  -90px 0 80px 0;
 }
+
 #sidebar .container { width: auto; padding: 0; }
 #sidebar .widget { clear: both; margin-bottom: 1.5em; }
 #sidebar .widget .gform_wrapper ul { padding: 0; list-style-type: none; top center no-repeat }
@@ -603,6 +603,7 @@ blockquote {
 	font-family: windsong;
 	font-size: 2em;
 	letter-spacing: .03em;
+	line-height: 230%;
 }
 h2.birds {
 	background: transparent url(../img/heading_bg.png)top center no-repeat;
@@ -610,8 +611,13 @@ h2.birds {
 	height: 100px;
 	padding: 75px 0px 0px 0px;
 }
+
+#sidebar h3.sb_event {
+	font-size: 1em;
+	margin-bottom: 0;
+} 
 .date {
-	padding: 15px 0 0 0;
+	padding: 4px 0 0 15px;
 }
 .sidebar_email_updates {
 	text-align: center;
@@ -646,7 +652,7 @@ h2.birds {
    Posts
    ========================================================================== */
    
-.hentry header { margin: 30px 0 0 20px; }
+.hentry header { margin: 30px 0 0 0; }
 .hentry h1 { line-height: 1.2em; margin-bottom: 0.2em; }
 .hentry h2:first-child { line-height: 1.2em; margin-bottom: 0; }
 .hentry h2 a { 

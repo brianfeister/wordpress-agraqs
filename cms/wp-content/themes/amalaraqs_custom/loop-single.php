@@ -14,7 +14,6 @@
 				<?php wp_link_pages(array('before' => '<nav id="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>' )); ?>
 				<p><?php the_tags(); ?></p>
 			</footer>
-			<?php comments_template(); ?>
 			<?php roots_post_inside_after(); ?>		
 		</article>
 	<?php roots_post_after(); ?>
