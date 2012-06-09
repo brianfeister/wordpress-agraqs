@@ -5,8 +5,30 @@
 		<?php roots_post_inside_before(); ?>
 			<header>
 				<h1 class="entry-title"><?php the_title(); ?></h1>
-				<time class="updated" datetime="<?php the_time('c'); ?>" pubdate><?php printf(__('Posted on %s at %s.', 'roots'), get_the_time('l, F jS, Y'),get_the_time())?></time>
-				<p class="byline author vcard"><?php _e('Written by', 'roots'); ?> <?php the_author_posts_link(); ?></p>			</header>
+				<p class="meta">
+					<?php if ( in_category(array('Classes','Abzahrah','Featured','Performances','Classes')) && function_exists('event_long_date')) {
+
+						echo 'Event Date: <strong>';
+						event_long_date();
+						echo '</strong> | ';
+						echo event_location();
+						echo ' | <a href="';
+						event_address();
+						echo '">View Map</a>'; 
+						
+					} else {
+						echo 'Posted On: <strong>';
+						the_date();
+						echo '</strong>';
+					} ?>
+				</p>
+				
+				<?php if ( has_post_thumbnail() ) {
+						the_post_thumbnail();
+				} else {
+				     	// No image for this post
+				} ?>
+				
 			<div class="entry-content">
 				<?php the_content(); ?>
 			</div>

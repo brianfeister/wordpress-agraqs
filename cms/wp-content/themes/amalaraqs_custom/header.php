@@ -8,17 +8,24 @@
 
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 	
-	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="viewport" content="width=device-width">
+	
+	<meta name="Description" content="Amala Gameela a talented and passionate Middle Eastern (Belly Dance) Dance Artist based in the Lehigh Valley, Pennsylvania area specializing in folkloric Middle Eastern dance and Egyptian cabaret. Amala is a sought after performer and enthusiastic instructor who presents traditional Middle Eastern dance with beauty, grace, culture, and professional artistry." />
 
 	<?php roots_stylesheets(); ?>
 	
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> Feed" href="<?php echo home_url(); ?>/feed/">
-	
-	<link rel="stylesheet" href="<?php bloginfo('siteurl'); ?>/assets/fonts/windsong-fontfacekit/windsong.css" type="text/css" media="all"/>
+
+	<link rel="stylesheet" href="<?php bloginfo('siteurl'); ?>/cms/assets/fonts/windsong-fontfacekit/windsong.css" type="text/css" media="all"/>
 
 	<script src="<?php echo get_template_directory_uri(); ?>/js/libs/modernizr-2.0.6.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?php echo get_template_directory_uri(); ?>/js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+	
+	<script src="<?php echo get_template_directory_uri(); ?>/js/fancybox/jquery.fancybox-1.3.1.pack.js"></script>         
+	<script src="<?php echo get_template_directory_uri(); ?>/js/fancybox/jquery.easing-1.3.pack.js"></script> 
+	<script src="<?php echo get_template_directory_uri(); ?>/js/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>     
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/js/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" /> 
 
 	<?php wp_head(); ?>
 	<?php roots_head(); ?>

@@ -7,11 +7,19 @@ var b = document.documentElement;
 	b.setAttribute('data-platform', navigator.platform );
 	
 	
-//	jQuery('#cycle').cycle({
-//		fx: 'fade'
-//	});
-
-//	jQuery('figure.gallery-item a').attr('rel','gallery');
-//	jQuery('figure.gallery-item a[rel="gallery"]').fancybox();
+	/* This is basic Fancybox activation - uses default settings */
+	
+			$("a.fancybox").fancybox({
+	        	'hideOnContentClick': true
+	        });
+	        
+	        /* This is a non-obtrustive Fancybox method for youtube videos*/
+	
+			$("a[rel=video_box], a.video_box, a.fancy_box").fancybox({
+	        	'hideOnContentClick': false,									   
+				overlayShow: true,
+				showNavArrows: true,
+				type: 'swf'
+			});
 
 });

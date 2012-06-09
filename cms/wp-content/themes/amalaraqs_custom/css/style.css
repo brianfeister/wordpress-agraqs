@@ -100,6 +100,8 @@ a:hover, a:active {
 }
 a:active, input.button:active { outline: 0; position: relative; top: 1px; }
 
+.img_gallery a:active, .img_gallery input.button:active { top: 0; position: absolute; }
+
 .button, #post-nav a, #comments-nav a {
 	display: inline-block;
 	background: #06c;
@@ -141,7 +143,6 @@ abbr[title] { border-bottom: 1px dotted; }
 
 b, strong { 
 	font-weight: bold; 
-	color: #437600;
 }
 
 blockquote { margin: 1em 40px; }
@@ -165,7 +166,6 @@ h2.main_title, .windsong {
 	line-height: 100%;
 }
 h2.main_title {
-	color: #437600;
 	padding: 0 0 0 0;
 }
 
@@ -344,7 +344,20 @@ td { vertical-align: top; }
 #nav-utility ul li { float: left; position: relative; }
 #nav-utility ul li a { display: block; float: left; padding: 2px 6px; }
 
-
+ul.sub_nav { 
+	position: absolute;
+	top: 0;
+	right: 0;
+	white-space: nowrap;
+}
+ul.sub_nav li, ul#sub_nav li a {
+	white-space: nowrap;
+	display: block;
+	width: auto;
+	float: left;
+	padding: 0 5px;
+	font-size: 12px;
+}
 /* =============================================================================
    Content
    ========================================================================== */
@@ -371,15 +384,11 @@ td { vertical-align: top; }
    Blockquotes 
   ===== */
 blockquote {
-	color: #473400;
-}
-.blockquote a{
-	color: #473400;
-	text-decoration: underline;
-} 
-.blockquote_quotations_img{
 	float: left;
 	margin: 0 20px 0 0;
+	padding: 0 30px 0 60px;
+	color: #473400;
+	background: transparent url('../img/blockquote_bg.png') no-repeat left top;
 }
 
 /* =====================
@@ -501,6 +510,10 @@ blockquote {
 	float: right;
 	padding: 17px 0 0 0;
 }
+.clear {
+	display: block;
+	clear: both;
+}
 /* =====================
    Hire Page 
   ===== */
@@ -511,12 +524,13 @@ blockquote {
 	float: left;
 	margin: 0 15px 0 0;
 }
-.paragraph_indent {
-	margin: 0 0 0 20px;
-}
 #img_hire {
 	background: url('../img/img_hire.jpg') no-repeat center;
 	float: right;
+}
+
+.attachment-post-thumbnail {
+	padding: 0 0 20px 0;
 }
 
 /* =====================
@@ -557,6 +571,37 @@ blockquote {
 #abz_serayah_img {
 	background: url('../img/abz_bio_serayah.jpg') no-repeat center;
 }
+
+/* image gallery
+---------------------------------------------------------------------------------*/
+.img_gallery{
+	padding: 0 15px;
+	display: block;
+}
+.img_gallery li{
+	list-style: none;
+	position: relative;
+	display: block;
+	float: left;
+	height: 100px;
+	width: 75px;
+	padding: 0 11px;
+}
+.img_gallery span{
+	background: transparent url('../img/frame_small.png') top center no-repeat;	
+	position: absolute;
+	display: block;
+	height: 100px;
+	width: 75px;
+	top: 0;
+	left: 0;
+	padding: 0 11px;
+}
+.img_gallery a{
+	cursor: pointer;
+}
+
+
 
     
 /* =====================
@@ -654,13 +699,13 @@ h2.birds {
    
 .hentry header { margin: 30px 0 0 0; }
 .hentry h1 { line-height: 1.2em; margin-bottom: 0.2em; }
+.hentry h1.entry-title { font-size: 1.6em; font-weight: bold; }
 .hentry h2:first-child { line-height: 1.2em; margin-bottom: 0; }
 .hentry h2 a { 
 	text-decoration: none;
 	font-size: .8em;
 	font-family: "Century Gothic",Verdana,Arial,sans-serif; 
 }
-.hentry time { display: block; font-size: 1.2em; position: relative; }
 .hentry p.byline { }
 
 
